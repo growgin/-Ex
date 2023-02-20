@@ -1,0 +1,855 @@
+$font-size-big-title: 36px;
+$font-size-standard: 16px;
+$black: #444444;
+$white: #fff;
+$green: #21A937;
+// レイアウト幅
+$layout-width-inner: 1180px;
+
+// ブレークポイント
+$breakpoints: (
+    "sp": " (max-width: 767px)",
+    "tab": "(min-width:768px)  and (max-width: #{$layout-width-inner - 1px})",
+    "pc": " (min-width: #{$layout-width-inner})",
+    ) !default;
+
+/*メディアクエリ-*/
+
+@mixin mq($breakpoint: sp) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+body {
+    font-family: 'Noto Sans JP',
+        sans-serif;
+    
+    color: $black;
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+a {
+    color: $black;
+    text-decoration: none;
+
+}
+
+@include mq('sp') {
+    .is-pc {
+        display: none;
+    }
+
+}
+
+@include mq('pc') {
+    .is-sp {
+        display: none;
+    }
+
+}
+
+.section-head{
+    background:linear-gradient(transform)
+}
+
+
+
+// innerの設定
+
+.inner {
+    width: 1180px;
+    max-width: 100%;
+    margin: 0 auto;
+
+    @include mq('sp') {
+        width: 375px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    @include mq("tab") {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+
+
+
+
+//header
+
+.header {
+    height: 130px;
+
+    @include mq('sp') {
+        height: 110px;
+    }
+}
+
+.header-inner {
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    padding-left: 7px;
+    justify-content: space-between;
+
+    @include mq('sp') {
+        display: block;
+    }
+}
+
+.header-logo {
+    margin-top: 29px;
+    width: 263px;
+    height: 73px;
+
+    @include mq('sp') {
+        margin-top: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 169px;
+        height: 48px;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.header-nav {
+    margin-top: 36px;
+    width: 290px;
+    margin-right: 20px;
+
+    @include mq('sp') {
+        margin-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.neader-nav-item {}
+
+.neader-nav-item-time {
+    font-size: 14px;
+    margin-bottom: 17px;
+
+    @include mq('sp') {
+        margin-top: -8px;
+    }
+}
+
+.neader-nav-item-tel {
+    position: relative;
+    margin-top: 7px;
+    text-align: right;
+
+    @include mq('sp') {
+        text-align: center;
+        margin-top: 0;
+    }
+
+    a {
+
+        font-weight: bold;
+        font-size: 24px;
+        color: $green;
+
+        @include mq('sp') {
+            font-size: 20px;
+        }
+    }
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 25px;
+        height: 25px;
+        right: 178px;
+        background: url('../img/受話器の線画アイコン.svg'
+        );
+
+    @include mq('sp') {
+        left: 45px;
+    }
+}
+}
+
+
+
+//main
+
+.main {
+    background: url('../img/fv.png') no-repeat center center /cover;
+
+    @include mq('sp') {
+        background: url('../img/fv.png')no-repeat /cover;
+        background-position: right 30% bottom 50%;
+    }
+
+    @include mq('tab') {
+        background: url('../img/fv.png')no-repeat /cover;
+        background-position: right 30% bottom 50%;
+    }
+}
+
+.main-inner {
+    height: 947px;
+    width: 100%;
+    max-height: 100%;
+    position: relative;
+
+    @include mq('sp') {
+        height: 530px;
+    }
+}
+
+.main-documents {
+    position: absolute;
+    content: '';
+    top: 133px;
+    left: 211px;
+    writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    -webkit-writing-mode: vertical-rl;
+
+    @include mq('sp') {
+        top: 90%;
+        left: 20px;
+        transform: translateY(-90%);
+    }
+
+    @include mq('tab') {
+        top: 90%;
+        left: 20px;
+        transform: translateY(-90%);
+    }
+
+
+
+
+}
+
+.main-document {
+    padding-top: 21px;
+    margin-right: 80px;
+    background: #fff;
+    width: 102px;
+    height: 565px;
+    line-height: 102px;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 6px;
+
+    .green-1 {
+        color: $green ;
+        font-weight: bold;
+    }
+
+    @include mq('sp') {
+        width: 50px;
+        height: 310px;
+        line-height: 52px;
+        font-size: 14px;
+        margin-right: 20px;
+
+    }
+}
+
+//works
+
+.works-inner {
+    padding-top: 162px;
+    height: 664px;
+    display: flex;
+
+    @include mq('sp') {
+        display: block;
+        padding-top: 30px;
+        height: 530px;
+    }
+}
+
+.works-documents {
+    padding-left: 32px;
+    margin-top: 29px;
+    width: 38.6%;
+    margin-right: 44px;
+
+    @include mq('sp') {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+}
+
+.works-title {
+    margin-right: 0;
+    font-size: 24px;
+    font-weight: bold;
+    background:linear-gradient(transparent 70%, #99E5A5 0%);
+
+    &:first-child {
+        width: 269px;
+        margin-bottom: 32px;
+        @include mq('sp') {
+        
+            width: 179px;
+        }
+    }
+
+    width: 216px;
+
+    @include mq('sp') {
+
+        width: 144px;
+        font-size: 16px;    
+    }
+
+    @include mq('sp') {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+}
+
+.works-detail {
+    margin-top: 28px;
+    line-height: 2.375;
+
+    @include mq('sp') {
+        margin-bottom: 20px;
+        line-height: 1.2;
+        text-align: left;
+    }
+}
+
+.works-img {
+    width: 60%;
+
+    @include mq('sp') {
+        width: 100%;
+    }
+
+    img {}
+}
+
+//treatment
+
+.treatment {
+    background: #F5FCF8;
+    height: 858px;
+    padding-bottom: 45px;
+
+    @include mq('sp') {
+        height: 100%;
+    }
+}
+
+.treatment-inner {
+    padding-top: 78px;
+}
+
+.treatment-head {
+    width: 96px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: bold;
+    background:linear-gradient(transparent 70%, #99E5A5 0%);
+
+}
+
+.treatment-doc {
+    text-align: center;
+    margin-bottom: 40px;
+
+    @include mq('sp') {
+        margin-bottom: 60px;
+        padding-left: 0;
+    }
+}
+
+.cards {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    @include mq('sp') {
+        flex-direction: column;
+    }
+
+}
+
+.card {
+    width: 380px;
+    height: 591px;
+    background: #FFFFFF;
+    border: #C9C9C9 2px solid;
+    border-radius: 10px 10px 10px 10px;
+    text-align: center;
+    position: relative;
+
+    @include mq('sp') {
+        height: 495px;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+.card-title {
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 43px;
+    padding-bottom: 39px;
+}
+
+.card-detail {
+    font-weight: bold;
+    line-height: 2.4;
+    text-align: left;
+    padding-left: 28px;
+    padding-right: 28px;
+    margin-bottom: 108px;
+
+    @include mq('sp') {
+        line-height: 1.2;
+    }
+
+    @include mq('tab') {
+        line-height: 1.2;
+
+    }
+
+}
+
+.card-img {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 187px;
+    height: 187px;
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @include mq('tab') {
+        bottom: 20px;
+    }
+
+}
+
+
+
+//notice
+
+.notice {
+
+    background: #F5FCF8;
+    height: 604px;
+
+    @include mq('sp') {
+        height: 740px;
+    }
+}
+
+.notice-head {
+    width: 96px;
+    padding-top: 6px;
+    margin-bottom: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: bold;
+    background:linear-gradient(transparent 70%, #99E5A5 0%);
+
+
+}
+
+.notice-inner {
+    height: 390px;
+    background: #ffffff;
+    border-radius: 30px 30px 30px 30px;
+    box-shadow: #00000029 0px 3px 6px;
+    position: relative;
+
+    @include mq('sp') {
+        height: 600px;
+        width: 90%;
+    }
+    @include mq('tab') {
+        width: 90%;
+    }
+}
+
+.notice-items {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.notice-item {
+    width: 1048px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    margin-right: 46px;
+    border-bottom: 2px solid #E7E7E7;
+    padding-top: 15px;
+    padding-bottom: 20px;
+
+    &:first-child {
+        padding-top: 51px;
+    }
+
+    @include mq('sp') {
+        width: 100%;
+        flex-direction: column;
+        padding-bottom: 40px;
+
+        @include mq('sp') {
+            position: relative;
+        }
+
+    }
+
+    @include mq('tab') {
+        width: 100%;
+        padding-bottom: 20px;
+    }
+}
+
+.notice-item-date {
+    color: $green;
+    margin-right: 30px;
+    font-weight: bold;
+    font-size: 16px;
+
+    @include mq('sp') {
+        padding-bottom: 20px;
+    }
+
+}
+
+.notice-item-title {
+    width: 80px;
+    height: 25px;
+    line-height: 25px;
+    background: $black;
+    color: $white;
+    text-align: center;
+    margin-right: 30px;
+    font-weight: bold;
+
+    a {
+        font-size: 12px;
+    }
+}
+
+.notice-item-detail {
+    font-weight: bold;
+
+    @include mq('sp') {
+        position: absolute;
+        content: '';
+        right: 10px;
+        width: 65%;
+    }
+
+    @include mq('tab') {
+        position: absolute;
+        content: '';
+        right: 10px;
+        width: 65%;
+    }
+}
+
+.detail-button {
+    position: absolute;
+    content: "";
+    bottom: 46px;
+    right: 66px;
+
+    @include mq('tab') {
+        bottom: 10px;
+    }
+
+
+    a {
+        position: relative;
+        font-weight: bold;
+
+        &::after {
+            position: absolute;
+            content: '';
+            right: -17px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 0 7px 12.1px;
+            border-color: transparent transparent transparent #080b0f;
+        }
+    }
+
+}
+
+// adress
+
+.adress {}
+
+.adress-inner {
+    display: flex;
+    height: 799px;
+    padding-top: 172px;
+
+    @include mq('sp') {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    @include mq('tab') {
+        flex-direction: column;
+    }
+}
+
+.adress-map {
+    padding-left: 34px;
+    margin-right: 30px;
+
+    iframe {
+
+        @include mq('sp') {
+            width: 100%;
+        }
+    }
+
+    @include mq('sp') {
+        padding-left: 0px;
+        margin-left: 0;
+        margin-right: 0;
+        order: 2;
+        padding-bottom: 30px;
+        margin-top: 10px;
+
+    }
+
+    @include mq('tab') {
+        padding-left: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        order: 2;
+        padding-bottom: 30px;
+        margin-top: 10px;   
+    }
+
+}
+
+.adress-details {
+    @include mq('sp') {
+        order: 1;
+        position: relative;
+    }
+
+    @include mq('tab') {
+        order: 1;
+        position: relative;
+        text-align: center;
+    }
+}
+
+.adress-detail {
+
+    margin-right: auto;
+}
+
+.adress-details-logo {
+    margin-bottom: 25px;
+
+    @include mq('sp') {
+        text-align: center;
+    }
+}
+
+.adress-details-document {
+    margin-bottom: 25px;
+
+    @include mq('sp') {
+        text-align: center;
+    }
+}
+
+.adress-details-tel {
+    padding-left: 30px;
+    margin-bottom: 28.5px;
+    position: relative;
+
+    @include mq('sp') {
+        text-align: center;
+    }
+
+    @include mq('tab') {
+        width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    a {
+        font-weight: bold;
+        font-size: 24px;
+        color: $green;
+    }
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 25px;
+        height: 25px;
+        left: 0;
+        background: url('../img/受話器の線画アイコン.svg');
+
+        @include mq('sp') {
+            left: 70px;
+        }
+
+        @include mq('sp') {
+            position: absolute;
+            content: '';
+            width: 25px;
+            height: 25px;
+            left: 40px;
+        }
+
+    }
+}
+
+.adress-details-date {
+    padding-top: 21.5px;
+    padding-bottom: 21.5px;
+    border-bottom: 2px solid #E7E7E7;
+    border-top: 2px solid #E7E7E7;
+
+    @include mq('sp') {
+        position: relative;
+    }
+
+    @include mq('tab') {
+        margin-left: 150px;
+        margin-right: 150px;
+    }
+
+}
+
+.adress-details-date-item {
+    display: flex;
+    margin-bottom: 31px;
+
+}
+
+.item2 {
+    margin-bottom: 0;
+
+}
+
+.adress-details-date-item-title {
+    padding-right: 28.5px;
+
+    @include mq('sp') {
+        width: 100px;
+        padding-right: 0;
+    }
+}
+
+.title2 {
+    padding-right: 44.5px;
+
+    @include mq('sp') {
+        padding-right: 26px;
+    }
+
+}
+
+.adress-details-date-item-contents {
+    padding-left: 28.5px;
+    border-left: 2px solid #E7E7E7;
+
+    @include mq('sp') {
+        padding-left: 15px;
+    }
+}
+
+.adress-details-date-item-content {
+    display: flex;
+
+    @include mq('sp') {
+        width: 250px;
+    }
+}
+
+.content-item {
+    margin-right: 23px;
+    margin-bottom: 13px;
+
+    &:last-child() {
+        padding-right: 0;
+        padding-left: 28.5px;
+    }
+
+    font-size: 14px;
+
+    @include mq('sp') {
+        margin-right: 15px;
+        font-size: 12px;
+        width: 60px;
+
+        &:nth-child(2n+1) {
+            height: 16px;
+            text-align: center;
+        }
+
+    }
+
+}
+
+.green {
+
+    background:linear-gradient(transparent 70%, #99E5A5 0%);
+
+}
+
+
+.copy-right {
+    margin-top: 21.5px;
+    text-align: right;
+    font-size: 11px;
+
+    @include mq('sp') {
+        width: 100%;
+        position: absolute;
+        content: '';
+        left: 50%;
+        bottom: -466px;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+    @include mq('tab') {
+        width: 100%;
+        position: absolute;
+        content: '';
+        left: 50%;
+        bottom: -466px;
+        transform: translateX(-50%);
+        z-index: 1000;
+    }
+}
